@@ -1,5 +1,5 @@
 /// <summary>
-/// Codeunit PTEAPIHelper (ID 50100).
+/// Codeunit "PTEAPIHelper" (ID 50100).
 /// test codeunit for playing about with API's
 /// </summary>
 codeunit 50100 PTEAPIHelper
