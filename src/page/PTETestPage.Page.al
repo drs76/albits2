@@ -1,5 +1,5 @@
 /// <summary>
-/// Page PTETestPage (ID 50100).
+/// Page "PTETestPage" (ID 50100).
 /// Page to launch tests from.
 /// </summary>
 page 50100 PTETestPage
