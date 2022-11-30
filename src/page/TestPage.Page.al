@@ -50,6 +50,80 @@ page 50100 PTETestPage
 
                 RunObject = codeunit PTEAPIHelper;
             }
+            action(TestJsonConversion)
+            {
+                ApplicationArea = All;
+                Caption = 'Json';
+                ToolTip = 'Test Json Convert ';
+                Image = Web;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    Customer: Record Customer;
+                    RecConvert: Codeunit PTERecConversion;
+                    JObject: JsonObject;
+                    JText: Text;
+                begin
+                    if not Customer.FindFirst() then
+                        exit;
+
+                    JObject := RecConvert.ToJson(Customer);
+                    JObject.WriteTo(JText);
+                    Message(JText);
+                end;
+            }
+            action(TestXmlConversion)
+            {
+                ApplicationArea = All;
+                Caption = 'Xml';
+                ToolTip = 'Test Xml Convert';
+                Image = Web;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    Customer: Record Customer;
+                    RecConvert: Codeunit PTERecConversion;
+                    XmlDoc: XmlDocument;
+                    XText: Text;
+                begin
+                    if not Customer.FindFirst() then
+                        exit;
+
+                    XmlDoc := RecConvert.ToXml(Customer);
+                    XmlDoc.WriteTo(XText);
+                    Message(XText);
+                end;
+            }
+
+            action(TestXmlDelimiter)
+            {
+                ApplicationArea = All;
+                Caption = 'Delimiter';
+                ToolTip = 'Test Delimiter Convert';
+                Image = Web;
+                Promoted = true;
+                PromotedCategory = Process;
+                PromotedOnly = true;
+
+                trigger OnAction()
+                var
+                    Customer: Record Customer;
+                    RecConvert: Codeunit PTERecConversion;
+                    DelimText: Text;
+                begin
+                    if not Customer.FindFirst() then
+                        exit;
+
+                    DelimText := RecConvert.ToDelimiter(Customer, '|');
+                    Message(DelimText);
+                end;
+            }
         }
     }
 
